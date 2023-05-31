@@ -5,13 +5,11 @@
     "internal": false,
     "configurationType": "GLOBAL",
     "deployment": {
-        "type": "java11",
         "profiles":[
             {
                 "name": " default",
                 "label": "Default",
                 "memory": 512,
-                "offHeapMinFactor": 1.5,
                 "description": "Default configuration"
             }
         ],
