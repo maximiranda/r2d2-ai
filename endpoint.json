@@ -2,7 +2,7 @@
     "label": "R2D2 AI",
     "name": "r2d2ai",
     "apiVersion": "v1",
-    "internal": false,
+    "internal": "false",
     "configurationType": "GLOBAL",
     "deployment": {
         "profiles":[
