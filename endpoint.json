@@ -5,9 +5,10 @@
     "internal": "false",
     "configurationType": "GLOBAL",
     "deployment": {
+        "type": "java11",
         "profiles":[
             {
-                "name": " default",
+                "name": "default",
                 "label": "Default",
                 "memory": 512,
                 "description": "Default configuration"
