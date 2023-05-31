@@ -1,0 +1,78 @@
+{
+  "fileName": "functions",
+  "endpointName": "chatgpt",
+  "apiDescriptors": [
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/v1/models",
+      "omittableUrlParts": [
+        "v1"
+      ],
+      "docsLinks": [
+        "https://platform.openai.com/docs/api-reference"
+      ]
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "GET",
+      "url": "/v1/models/:model",
+      "omittableUrlParts": [
+        "v1"
+      ],
+      "docsLinks": [
+        "https://platform.openai.com/docs/api-reference"
+      ]
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/v1/completions",
+      "omittableUrlParts": [
+        "v1"
+      ],
+      "docsLinks": [
+        "https://platform.openai.com/docs/api-reference"
+      ]
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/v1/chat/completions",
+      "omittableUrlParts": [
+        "v1"
+      ],
+      "docsLinks": [
+        "https://platform.openai.com/docs/api-reference"
+      ]
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/v1/edits",
+      "omittableUrlParts": [
+        "v1"
+      ],
+      "docsLinks": [
+        "https://platform.openai.com/docs/api-reference"
+      ]
+    },
+    {
+      "prefix": "",
+      "suffix": "",
+      "method": "POST",
+      "url": "/v1/moderations",
+      "omittableUrlParts": [
+        "v1"
+      ],
+      "docsLinks": [
+        "https://platform.openai.com/docs/api-reference"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+    "label": "R2D2 AI",
+    "name": "r2d2ai",
+    "apiVersion": "v1",
+    "internal": false,
+    "configurationType": "GLOBAL",
+    "deployment": {
+        "type": "java11",
+        "profiles":[
+            {
+                "name": " default",
+                "label": "Default",
+                "memory": 512,
+                "offHeapMinFactor": 1.5,
+                "description": "Default configuration"
+            }
+        ],
+        "allowMultipleInstances": false
+    },
+    "status": "ACTIVE",
+    "stores": [
+        { "name": "googleAccessToken" }
+    ],
+    "events": [],
+    "functions": [
+        {
+            "label": "GET",
+            "name": "_get",
+            "description": "Sends a GET request"
+        },
+        {
+            "label": "POST",
+            "name": "_post",
+            "description": "Sends a POST request"
+        }
+    ],
+    "scripts":[
+        "functions.js"
+    ],
+    "configuration":[
+        {
+            "name": "serviceAccountEmail",
+            "label": "Service Account Email",
+            "description": "The email from service account created",
+            "type": "text",
+            "required": true
+        },
+        {
+            "name": "privateKey",
+            "label": "Private Key",
+            "description": "The private key associated to the service account",
+            "type": "password",
+            "required": true
+        }
+    ]
+}

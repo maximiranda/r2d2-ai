@@ -1,0 +1,179 @@
+{
+	"label": "Create an edit with ChatGPT",
+	"name": "editChatgpt",
+	"category": "integrations",
+	"description": "This flow step will create an edit with chatgpt endpoint.",
+	"inputs": [
+		{
+			"label": "Model",
+			"name": "model",
+			"required": "true",
+			"type": "dropDown",
+			"multiplicity": "one",
+			"options": {
+				"possibleValues": [
+					{
+						"label": "text-davinci-edit-001",
+						"name": "text-davinci-edit-001"
+					},
+					{
+						"label": "code-davinci-edit-001",
+						"name": "code-davinci-edit-001"
+					}
+				],
+				"allowContextSelector": "false"
+			}
+		},
+		{
+			"label": "Input",
+			"name": "input",
+			"type": "text",
+			"description": "Content to be sent to the server.",
+			"options": {
+				"representation": "textArea",
+				"allowContextSelector": "true"
+			}
+		},
+		{
+			"label": "Instruction",
+			"name": "instruction",
+			"type": "text",
+			"required": "true",
+			"description": "The instruction that tells the model how to edit the prompt.",
+			"options": {
+				"representation": "textArea",
+				"allowContextSelector": "true"
+			}
+		},
+		{
+			"label": "Advanced Options For Prompt",
+			"name": "advancedSettingsForPrompt",
+			"type": "fieldsGroup",
+			"options": {
+				"fields": [
+					{
+						"label": "Max Tokens",
+						"name": "max_tokens",
+						"type": "text",
+						"description": "The maximum number of tokens to generate in the completion.",
+						"options": {
+							"allowContextSelector": "true",
+							"validation": {
+								"function": "!config.max_tokens || utils.isPlaceholder(config.max_tokens) || utils.getInteger(config.max_tokens) >= 0",
+								"message": "The time must be a valid placeholder or a positive integer greater than or equal to 0. "
+							}
+						}
+					},
+					{
+						"label": "Temperature",
+						"name": "temperature",
+						"type": "text",
+						"description": "What sampling temperature to use, between 0 and 2. Higher makes the output random, lower deterministic.",
+						"options": {
+							"allowContextSelector": "true",
+							"validation": {
+								"function": "!config.temperature || utils.isPlaceholder(config.temperature) || utils.getInteger(config.temperature) >= 0 utils.getInteger(config.temperature) <= 2",
+								"message": "The time must be a valid placeholder or a positive integer greater than or equal to 0. "
+							}
+						}
+					},
+					{
+						"label": "Top P",
+						"name": "top_p",
+						"type": "text",
+						"description": "An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass.",
+						"options": {
+							"allowContextSelector": "true",
+							"validation": {
+								"function": "!config.top_p || utils.isPlaceholder(config.top_p) || parseFloat(config.top_p) >= 0 parseFloat(config.top_p) <= 1",
+								"message": "The time must be a valid placeholder or a positive integer greater than or equal to 0. "
+							}
+						}
+					},
+					{
+						"label": "N",
+						"name": "n",
+						"type": "text",
+						"description": "How many completions to generate for each prompt.",
+						"options": {
+							"allowContextSelector": "true",
+							"validation": {
+								"function": "!config.n || utils.isPlaceholder(config.n) || utils.getInteger(config.n) >= 0",
+								"message": "The time must be a valid placeholder or a positive integer greater than or equal to 0. "
+							}
+						}
+					},
+					{
+						"label": "User",
+						"name": "user",
+						"type": "text",
+						"description": "A unique identifier representing your end-user.",
+						"options": {
+							"allowContextSelector": "true"
+						}
+					}
+				]
+			}
+		},
+		{
+			"label": "Advanced Settings",
+			"name": "advancedSettings",
+			"type": "fieldsGroup",
+			"options": {
+				"fields": [
+					{
+						"label": "Full Response",
+						"name": "fullResponse",
+						"type": "boolean",
+						"description": "Include extended information about response",
+						"visibility": "config.overrideSettings",
+						"defaultValue": false,
+						"options": {
+							"allowContextSelector": "false"
+						}
+					},
+					{
+						"label": "Connection timeout",
+						"name": "connectionTimeout",
+						"description": "Connect timeout interval, in milliseconds (0 = infinity). Default value: 5000 ms (5 sec)",
+						"type": "text",
+						"defaultValue": "5000",
+						"typeOptions": {
+							"validation": {
+								"function": "!config.connectionTimeout || utils.isPlaceholder(config.connectionTimeout) || utils.getInteger(config.connectionTimeout) >= 0",
+								"message": "The time must be a valid placeholder or a positive integer greater than or equal to 0. "
+							}
+						},
+						"options": {
+							"allowContextSelector": "false"
+						}
+					},
+					{
+						"label": "Read timeout",
+						"name": "readTimeout",
+						"description": "Read timeout interval, in milliseconds (0 = infinity). Default value: 60000 ms (60 sec)",
+						"type": "text",
+						"defaultValue": "60000",
+						"typeOptions": {
+							"validation": {
+								"function": "!config.readTimeout || utils.isPlaceholder(config.readTimeout) || utils.getInteger(config.readTimeout) >= 0",
+								"message": "The time must be a valid placeholder or a positive integer greater than or equal to 0. "
+							}
+						},
+						"options": {
+							"allowContextSelector": "false"
+						}
+					}
+				]
+			}
+		}
+	],
+	"outputs": [
+		{
+			"label": "Response",
+			"name": "response",
+			"type": "object",
+			"description": "The response to external URL"
+		}
+	]
+}
