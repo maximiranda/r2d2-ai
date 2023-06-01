@@ -18,7 +18,7 @@ endpoint.chat.completions = {};
 
 
 endpoint.completions.post = function(httpOptions) {
-    if (isObject(httpOptions)) {
+    if (!isObject(httpOptions)) {
         httpOptions = {
             "instances": 
             [
