@@ -20,7 +20,7 @@ Once you configured the endpoint, you can generate a completion with this call:
 
 
 ```js
-var res = app.endpoitns.r2d2ai.completions.post({
+var res = app.endpoints.r2d2ai.completions.post({
             "instances": 
             [
               {
@@ -37,11 +37,11 @@ var res = app.endpoitns.r2d2ai.completions.post({
 ```
 Or using a string:
 ```js
-var res = app.endpoitns.r2d2ai.completions.post("Text to generate completion")
+var res = app.endpoints.r2d2ai.completions.post("Text to generate completion")
 ```
 Also, you can generate a chat completion:
 ```js
-var res = app.endpoitns.r2d2ai.chat.completions.post({
+var res = app.endpoints.r2d2ai.chat.completions.post({
   "instances": [
     {
       "context": "Context for the chatbot",
@@ -63,11 +63,11 @@ var res = app.endpoitns.r2d2ai.chat.completions.post({
 ```
 Or, using an object with two keys.:
 ```js
-var res = app.endpoitns.r2d2ai.chat.completions.post({context: "Context for the chatbot", "message": "Text to send to the chatbot"})
+var res = app.endpoints.r2d2ai.chat.completions.post({context: "Context for the chatbot", "message": "Text to send to the chatbot"})
 ```
 And you can generate a embeddings:
 ```js
-var res = app.endpoitns.r2d2ai.embeddings.getEmbeddings.post({
+var res = app.endpoints.r2d2ai.embeddings.getEmbeddings.post({
   "instances": [
     {
         "content": "Text to get embeddings"
