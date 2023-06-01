@@ -104,21 +104,6 @@ public class R2D2AiEndpoint extends HttpEndpoint {
     }
 
 
-/*    private boolean handleErrorCodes(EndpointException restException) {
-        if (restException.getHttpStatusCode() == 401) {
-            appLogger.error("401 - Invalid Authentication or 401 - Incorrect API key provided or 401 - You must be a member of an organization to use the API.");
-            return false;
-        }
-        if (restException.getHttpStatusCode() == 429) {
-            appLogger.error("429 - Rate limit reached for requests or 429 - You exceeded your current quota, please check your plan and billing details or 429 - The engine is currently overloaded, please try again later.");
-            return true;
-        }
-        if (restException.getHttpStatusCode() == 500) {
-            appLogger.error("500 - The server had an error while processing your request.");
-            return true;
-        }
-        return false;
-    }*/
     private boolean checkInvalidTokenError(Exception e) {
         if (e instanceof EndpointException) {
             EndpointException restException = (EndpointException) e;

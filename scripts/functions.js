@@ -16,6 +16,11 @@ endpoint.chat = {};
 
 endpoint.chat.completions = {};
 
+endpoint.embeddings = {};
+
+endpoint.embeddings.getEmbeddings = {};
+
+
 
 endpoint.completions.post = function(httpOptions) {
     if (!isObject(httpOptions)) {
@@ -46,6 +51,20 @@ endpoint.chat.completions.post = function(httpOptions) {
     var options = checkHttpOptions(url, httpOptions);
     return endpoint._post(options);
 };
+
+endpoint.embeddings.getEmbeddings.post = function(httpOptions) {
+    if (!isObject(httpOptions)) {
+        httpOptions = {
+            "instances": [
+              { "content": httpOptions}
+            ],
+          };      
+    }
+    var url = parse('/textembedding-gecko@001:predict');
+    sys.logs.debug('[textembedding-gecko] POST from: ')
+    var options = checkHttpOptions(url, httpOptions);
+    return endpoint._post(options)
+}
 
 
 
