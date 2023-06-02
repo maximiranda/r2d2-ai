@@ -66,7 +66,12 @@ endpoint.embeddings.getEmbeddings.post = function(httpOptions) {
     return endpoint._post(options)
 }
 
-
+endpoint.embeddings.cosineSimilarity = function(a, b) {
+    const dotProduct = dot(a, b);
+    const normA = norm(a);
+    const normB = norm(b);
+    return dotProduct / (normA * normB);
+}
 
 ////////////////////////////////////
 // Public API - Generic Functions //
@@ -223,4 +228,13 @@ var parse = function (str) {
         sys.logs.error('Some unexpected error happened during the parse of the url for this helper.')
         throw err;
     }
+}
+
+var dot = function (a, b) {
+  return a.reduce((acc, val, index) => acc + val * b[index], 0);
+}
+
+var norm = function (vector) {
+  const sumOfSquares = vector.reduce((acc, val) => acc + val * val, 0);
+  return Math.sqrt(sumOfSquares);
 }
